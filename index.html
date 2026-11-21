@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Speech Notepad</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="toolbar" role="toolbar" aria-label="Notepad toolbar">
+      <div class="group">
+        <button id="newBtn" type="button" title="New document">New</button>
+        <button id="openBtn" type="button" title="Open a .txt file">Open</button>
+        <button id="saveBtn" type="button" title="Save as .txt">Save</button>
+        <button id="copyBtn" type="button" title="Copy all text">Copy</button>
+        <button id="clearBtn" type="button" title="Clear the editor">Clear</button>
+      </div>
+
+      <div class="group">
+        <label>
+          Language
+          <select id="languageSelect">
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="auto">Auto-detect</option>
+          </select>
+        </label>
+        <label>
+          Model
+          <select id="modelSelect">
+            <option value="onnx-community/whisper-tiny">Tiny (fastest)</option>
+            <option value="onnx-community/whisper-base" selected>Base (recommended)</option>
+            <option value="onnx-community/whisper-small">Small (most accurate)</option>
+          </select>
+        </label>
+        <label>
+          Font
+          <select id="fontSizeSelect">
+            <option value="16px">Small</option>
+            <option value="20px" selected>Medium</option>
+            <option value="26px">Large</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <div class="record-row">
+        <button id="recordBtn" type="button" class="record" aria-pressed="false">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="recordLabel">Start recording</span>
+        </button>
+        <p id="status" class="status" role="status" aria-live="polite">Loading…</p>
+      </div>
+
+      <div id="progressWrap" class="progress" hidden>
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <textarea
+        id="editor"
+        class="editor"
+        spellcheck="true"
+        placeholder="Press “Start recording”, speak, then press “Stop”. Your words will appear here — or just type."
+      ></textarea>
+
+      <input id="fileInput" type="file" accept=".txt,text/plain" hidden />
+    </main>
+
+    <footer class="footer">
+      <span id="wordCount">0 words</span>
+      <span id="offlineBadge" class="badge" hidden>Offline ready</span>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
