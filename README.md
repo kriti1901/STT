@@ -89,3 +89,7 @@ requirements.txt       Python dependencies
 - Recording is batch-based: the text appears after you press Stop, not live while you speak.
 - Uploads are limited to 25 MB per recording.
 - The server runs one transcription at a time per model, so simultaneous recordings from several users will queue.
+
+## Repository notes
+
+The backend is Python (`app/`). `static/app.js` is a small browser script and is marked as vendored in `.gitattributes`, so GitHub counts this as a Python project.
