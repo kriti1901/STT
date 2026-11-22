@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark" />
     <title>Speech Notepad</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>" />
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
     <header class="toolbar" role="toolbar" aria-label="Notepad toolbar">
@@ -30,9 +30,9 @@
         <label>
           Model
           <select id="modelSelect">
-            <option value="onnx-community/whisper-tiny">Tiny (fastest)</option>
-            <option value="onnx-community/whisper-base" selected>Base (recommended)</option>
-            <option value="onnx-community/whisper-small">Small (most accurate)</option>
+            <option value="tiny">Tiny (fastest)</option>
+            <option value="base" selected>Base (recommended)</option>
+            <option value="small">Small (most accurate)</option>
           </select>
         </label>
         <label>
@@ -74,6 +74,6 @@
       <span id="offlineBadge" class="badge" hidden>Offline ready</span>
     </footer>
 
-    <script type="module" src="/src/main.js"></script>
+    <script src="/static/app.js" defer></script>
   </body>
 </html>

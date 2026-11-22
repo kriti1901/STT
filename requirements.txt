@@ -1,0 +1,10 @@
+# Runtime
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+faster-whisper>=1.1.0
+
+# Development and tests
+pytest>=8.0
+httpx>=0.27
+playwright>=1.49
